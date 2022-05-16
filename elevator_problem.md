@@ -51,24 +51,24 @@ nearest elevator choosen by :
 assignNearOrIdleElevator(Elevators,request){
     nearestElevator = findNearestElevator(Elevators, request) 
 	nearestElevator.stops.add(request.floorNumber)
-	if elevator.state == idle
-		elevator.state = request.direction
-	request.assigned = elevatorNumber
+	if nearestElevator.elevator.state == idle
+		nearestElevator.elevator.state = request.direction
+	request.assigned = nearestElevator.elevatorId
 }
 ```
 
 # method to find nearest elevator based on elevator state , current position ,direction and distance
 ```
-findNearestElevator(Elevator, request) {
+findNearestElevator(Elevators, request) {
 	nearestElev = null
 	minFloorDiff = INT.MAX
-	for each elevator {
-        		if (fullCapacity == true)
+	for each elevator in Elevators {
+        		if (fullCapacity == true)  //if elevator is full then we need to check other elevators
 			continue;
-		if (request.direction == elevator.state  || elevator.state == 'IDLE') {
-			if (elevator.state = up and elevator.floorNumber < request.floorNumber)  //  checking direction and user floor number
+		if (request.direction == elevator.state  || elevator.state == 'IDLE') {  // if elevator is in same direction of user or lift is idle
+			if (elevator.state = up and elevator.floorNumber <= request.floorNumber)  //  checking direction and user floor number
 				floorDiff = request.floorNumber - elevator.floorNumber
-			else if (elevator.state = down and request.floorNumber < elevator.floorNumber)
+			else if (elevator.state = down and elevator.floorNumber >= request.floorNumber)
 				floorDiff =   elevator.floorNumber - request.floorNumber
 			else 
 				wait till an elevator is idle or an elevator changes direction
