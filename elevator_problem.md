@@ -2,6 +2,7 @@
 
 Consider we are building an algorithm for an elevator system for a highrise building like Burj Khalifa. Typically these buildings would have a considerable number of floors / stops. E.g. Burj Khalifa has 165 but let us assume that the number can go upto 200.
 
+## solution
 
 when ever a user press an lift button it becomes a elevator request and add to request array .
 request array contains lift of requests (request objects) by user
