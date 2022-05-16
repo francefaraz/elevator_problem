@@ -13,7 +13,7 @@ request array contains lift of requests (request objects) by user
 request:{
     id,
     floorNumber,
-    destFloorNumber,
+    destFloorNumber,  #inside elevator when users press destination floor
     direction - up or down,
     time,
     assigned - elevatorNumber (which elevator alloted to user),
