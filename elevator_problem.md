@@ -1,4 +1,4 @@
-#problem statement 
+# problem statement 
 
 Consider we are building an algorithm for an elevator system for a highrise building like Burj Khalifa. Typically these buildings would have a considerable number of floors / stops. E.g. Burj Khalifa has 165 but let us assume that the number can go upto 200.
 
@@ -7,7 +7,7 @@ when ever a user press an lift button it becomes a elevator request and add to r
 request array contains lift of requests (request objects) by user
 
 
-elevator request array:
+# elevator request array:
 ```
 request:{
     id,
@@ -19,7 +19,7 @@ request:{
 
 }
 ```
-Elevator (lift) object--
+# Elevator (lift) object--
 ```
 Elevator{
     elevatorId,
@@ -29,7 +29,7 @@ Elevator{
     stops:[]  
 }
 ```
-#Algorithm
+# Algorithm:
 when ever user request for a elevator, check for the nearest elevator and assign the elevator to the user.
 
 nearest elevator choosen by :
@@ -45,7 +45,7 @@ nearest elevator choosen by :
  }
  ```
 
- #assign an near elevator or idle elevator to user 
+ # assign an near elevator or idle elevator to user 
 ```
 assignNearOrIdleElevator(Elevators,request){
     nearestElevator = findNearestElevator(Elevators, request) 
@@ -56,7 +56,7 @@ assignNearOrIdleElevator(Elevators,request){
 }
 ```
 
-// method to find nearest elevator based on elevator state , current position ,direction and distance
+# method to find nearest elevator based on elevator state , current position ,direction and distance
 ```
 findNearestElevator(Elevator, request) {
 	nearestElev = null
@@ -80,7 +80,7 @@ findNearestElevator(Elevator, request) {
 	return nearestElev;
 }
 ```
--> after user enters in elevator  press the destination floorNumber button  where user want to go  
+# -> after user enters in elevator  press the destination floorNumber button  where user want to go  
 ```
 addDestinationFloorToElevator(Elevator,request){
     Elevator.stops.add(request.destFloorNumber)
@@ -88,7 +88,7 @@ addDestinationFloorToElevator(Elevator,request){
 ```
 
 
- For morning 8-9 am and for evening 5pm - 9pm  
+# For morning 8-9 am and for evening 5pm - 9pm  
  
 ```
 
@@ -103,12 +103,12 @@ for each elevator in  Elevators {
 
 ```
 
-it's better to divide the floors to zone 
+# it's better to divide the floors to zone 
  No. of zones= total floors/ total elevators
  each zone will be provided with some elevators = total elevators/No. of zones
 
  consider our algo for burj Khalifa
- example : 
+# example : 
   Burj Khalifa has 165 but let us assume that the number can go upto 200
   total Elevator(lifts) 50
    so the No. of zones for burj khalifa is=200/40 = 5
