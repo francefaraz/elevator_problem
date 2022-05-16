@@ -20,7 +20,7 @@ request:{
 }
 ```
 Elevator (lift) object--
-
+```
 Elevator{
     elevatorId,
     elevator_State: IDLE / UP / DOWN,  //initally the state is IDLE
@@ -28,7 +28,7 @@ Elevator{
     floorNumber: (lift position )
     stops:[]  
 }
-
+```
 #Algorithm
 when ever user request for a elevator, check for the nearest elevator and assign the elevator to the user.
 
@@ -39,13 +39,14 @@ nearest elevator choosen by :
 
 
  pseudocode:
-
+```
  for each request in elevator-request-array{
-     assignNearElevator(Elevators,request) //passing parameter of elevators objects and request object to assignNearElevator function 
+     assignNearOrIdleElevator(Elevators,request) //passing parameter of elevators objects and request object to assignNearElevator function 
  }
+ ```
 
  #assign an near elevator or idle elevator to user 
-
+```
 assignNearOrIdleElevator(Elevators,request){
     nearestElevator = findNearestElevator(Elevators, request) 
 	nearestElevator.stops.add(request.floorNumber)
@@ -53,9 +54,10 @@ assignNearOrIdleElevator(Elevators,request){
 		elevator.state = request.direction
 	request.assigned = elevatorNumber
 }
+```
 
 // method to find nearest elevator based on elevator state , current position ,direction and distance
-
+```
 findNearestElevator(Elevator, request) {
 	nearestElev = null
 	minFloorDiff = INT.MAX
@@ -77,13 +79,17 @@ findNearestElevator(Elevator, request) {
 	}
 	return nearestElev;
 }
-
+```
+-> after user enters in elevator  press the destination floorNumber button  where user want to go  
+```
 addDestinationFloorToElevator(Elevator,request){
     Elevator.stops.add(request.destFloorNumber)
 }
-
 ```
+
+
  For morning 8-9 am and for evening 5pm - 9pm  
+ 
 ```
 
 for each elevator in  Elevators {	
@@ -95,6 +101,7 @@ for each elevator in  Elevators {
 	}
 }
 
+```
 
 it's better to divide the floors to zone 
  No. of zones= total floors/ total elevators
